@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
-import java.net.URI;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -22,7 +21,7 @@ public class CommentController {
     void init() {
         Comment comment = new Comment();
         comment.setAuthor("hodor");
-        comment.setText("hodor");
+        comment.setText("hodor hodor");
         comments.add(comment);
     }
 
@@ -37,10 +36,15 @@ public class CommentController {
     public void addComment(@RequestBody final Comment added) {
         comments.add(added);
     }
-
+    
     @RequestMapping("/")
     public String home() {
         return "index";
+    }
+
+    @RequestMapping(value = "/doodle", method = RequestMethod.GET)
+    public String doodle() {
+        return "doodle";
     }
 
 
