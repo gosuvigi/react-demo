@@ -3,6 +3,7 @@ define(function (require) {
 
     var React = require('react');
     var ReactBootstrap = require('react-bootstrap');
+    var ReactQuill = require('react-quill');
 
     function Doodle() {
         var Input = ReactBootstrap.Input;
@@ -25,8 +26,7 @@ define(function (require) {
                         </div>
                         <div className="row">
                             <div className="form-group col-md-offset-2 col-md-8">
-                                <label for="location">Date / Time</label>
-                                <input type="text" className="form-control" id="dateTime" placeholder="Date / Time"/>
+                                <label for="dateTime">Date / Time</label>
                             </div>
                         </div>
                         <div className="row">
@@ -38,7 +38,7 @@ define(function (require) {
                         <div className="row">
                             <div className="form-group col-md-offset-2 col-md-8">
                                 <label for="emailText">Email Text</label>
-                                <textarea className="form-control" id="emailText" placeholder="Email Text" rows="5"/>
+                                <ReactQuill value="<h1>Hodor!</h1>" theme="snow" className="editor"/>
                             </div>
                         </div>
                         <div className="row">
@@ -57,10 +57,7 @@ define(function (require) {
     }
 
     Doodle.prototype.init = function () {
-        React.render(
-            <this.DoodleForm/>,
-            document.getElementById('reactForm')
-        );
+        React.render(<this.DoodleForm/>, document.getElementById('reactForm'));
     };
 
     return Doodle;
