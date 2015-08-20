@@ -47,10 +47,5 @@ public class CommentController {
         return "doodle";
     }
 
-    @RequestMapping(value = "/doodle1", method = RequestMethod.GET)
-    public String doodle1() {
-        return "doodle1";
-    }
-
 
 }

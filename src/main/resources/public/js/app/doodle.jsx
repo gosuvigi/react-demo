@@ -4,10 +4,13 @@ define(function (require) {
     var React = require('react');
     var ReactBootstrap = require('react-bootstrap');
     var ReactQuill = require('react-quill');
+    var ReactWidgets = require('react-widgets');
 
     function Doodle() {
+
         var Input = ReactBootstrap.Input;
         var ButtonInput = ReactBootstrap.ButtonInput;
+        var DateTimePicker = ReactWidgets.DateTimePicker;
 
         this.DoodleForm = React.createClass({
             render: function () {
@@ -15,7 +18,7 @@ define(function (require) {
                     <form>
                         <div className="row">
                             <div className="form-group col-md-offset-2 col-md-8">
-                                <Input type="text" label="Title" placeholder="Title"/>
+                                <Input type="text" label="Title hodor" placeholder="Title"/>
                             </div>
                         </div>
                         <div className="row">
@@ -27,6 +30,7 @@ define(function (require) {
                         <div className="row">
                             <div className="form-group col-md-offset-2 col-md-8">
                                 <label for="dateTime">Date / Time</label>
+                                <DateTimePicker id="dateTime"/>
                             </div>
                         </div>
                         <div className="row">
@@ -38,7 +42,7 @@ define(function (require) {
                         <div className="row">
                             <div className="form-group col-md-offset-2 col-md-8">
                                 <label for="emailText">Email Text</label>
-                                <ReactQuill value="<h1>Hodor!</h1>" theme="snow" className="editor"/>
+                                <ReactQuill value="" theme="snow" className="editor"/>
                             </div>
                         </div>
                         <div className="row">
@@ -48,7 +52,8 @@ define(function (require) {
                             </div>
                         </div>
                         <div className="row">
-                            <ButtonInput type="submit" className="btn btn-primary col-md-offset-5 col-md-2">Submit</ButtonInput>
+                            <ButtonInput type="submit"
+                                         className="btn btn-primary col-md-offset-5 col-md-2">Submit</ButtonInput>
                         </div>
                     </form>
                 );
@@ -63,4 +68,3 @@ define(function (require) {
     return Doodle;
 
 });
-
