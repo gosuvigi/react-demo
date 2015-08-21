@@ -1,0 +1,33 @@
+{
+  "name": "react-doodle",
+  "version": "0.0.1",
+  "description": "Example Flux architecture.",
+  "main": "js/app.js",
+  "dependencies": {
+    "classnames": "^2.1.3",
+    "events": "^1.0.2",
+    "flux": "^2.1.1",
+    "fluxxor": "^1.7.1",
+    "keymirror": "~0.1.1",
+    "object-assign": "^1.0.0",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "browserify": "^6.3.4",
+    "envify": "^3.4.0",
+    "reactify": "^0.15.2",
+    "uglify-js": "~2.4.24",
+    "watchify": "^2.6.2"
+  },
+  "scripts": {
+    "start": "watchify -o js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js"
+  },
+  "author": "vigi",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  }
+}

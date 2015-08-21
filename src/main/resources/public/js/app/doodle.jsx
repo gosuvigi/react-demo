@@ -5,17 +5,26 @@ define(function (require) {
     var ReactBootstrap = require('react-bootstrap');
     var ReactQuill = require('react-quill');
     var ReactWidgets = require('react-widgets');
+    var DoodleStore = require('../stores/DoodleStore');
 
     function Doodle() {
 
+        var DropdownList = ReactWidgets.DropdownList;
         var Input = ReactBootstrap.Input;
         var ButtonInput = ReactBootstrap.ButtonInput;
         var DateTimePicker = ReactWidgets.DateTimePicker;
 
         this.DoodleForm = React.createClass({
+
             render: function () {
                 return (
                     <form>
+                        <div className="row">
+                            <div className="form-group col-md-offset-2 col-md-8">
+                                <label for="templates">Template</label>
+                                <DropdownList id='templates' valueField='id' textField='name' data={templates} componentDidMount={DoodleStore.getAll()}/>
+                            </div>
+                        </div>
                         <div className="row">
                             <div className="form-group col-md-offset-2 col-md-8">
                                 <Input type="text" label="Title hodor" placeholder="Title"/>
@@ -37,6 +46,7 @@ define(function (require) {
                             <div className="form-group col-md-offset-2 col-md-8">
                                 <label for="initiator">Initiator</label>
                                 <input type="text" className="form-control" id="initiator" placeholder="Initiator"/>
+                                <DateTimePicker id="dateTime2"/>
                             </div>
                         </div>
                         <div className="row">
@@ -52,8 +62,7 @@ define(function (require) {
                             </div>
                         </div>
                         <div className="row">
-                            <ButtonInput type="submit"
-                                         className="btn btn-primary col-md-offset-5 col-md-2">Submit</ButtonInput>
+                            <ButtonInput type="submit" className="btn btn-primary col-md-offset-5 col-md-2">Submit</ButtonInput>
                         </div>
                     </form>
                 );

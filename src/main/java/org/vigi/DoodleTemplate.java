@@ -2,6 +2,7 @@ package org.vigi;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Singular;
 
 import java.util.Date;
 import java.util.List;
@@ -13,6 +14,10 @@ import java.util.List;
 @Getter
 public final class DoodleTemplate {
 
+    private final Long id;
+
+    private final String name;
+
     private final String title;
 
     private final String location;
@@ -23,5 +28,6 @@ public final class DoodleTemplate {
 
     private final String emailText;
 
+    @Singular
     private final List<Person> recipients;
 }

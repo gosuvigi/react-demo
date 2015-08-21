@@ -9,7 +9,11 @@ require.config({
         Globalize: 'lib/globalize.min',
         'react-widgets': 'lib/react-widgets',
         quill: 'lib/quill.min',
-        'react-quill': 'lib/react-quill.min'
+        'react-quill': 'lib/react-quill.min',
+        'jquery': 'lib/jquery-2.1.3.min',
+        'flux': 'lib/Flux.min',
+        'object-assign': 'lib/object-assign',
+        'events': 'lib/events'
     },
     shim: {
         react: {
